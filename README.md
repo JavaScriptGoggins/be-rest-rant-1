@@ -5,6 +5,8 @@ REST-Rant is an app where users can review restaurants.
 
 As a restaurant customer, I need the reviews feature, so I can see the quality of the restaurant. 
 
+<!-- routes begin -->
+
 | Method  | Path                     | Purpose                                          |
 |:--------|:------------------------:|-------------------------------------------------:|
 | GET     | /                        | Home Page                                        |
@@ -18,3 +20,13 @@ As a restaurant customer, I need the reviews feature, so I can see the quality o
 | POST    | /places/:id/rant         | Create a rant (comment) about a particular place |
 | DELETE  | /places/:id/rant/:rantId | Delete a rant (comment) about a particular place |
 | GET     | *                        | 404 page (matches any route mot defined above)   |
+
+<!-- routes end -->
+
+<!-- storing places begin -->
+
+| Name          | City      | State      | Cuisines             | Picture                     |
+|:--------------|:---------:|:----------:|:--------------------:|----------------------------:|
+|Board and Brew | Escondido | California | Sandwiches and Salads| Board and Brew Image        |
+
+<!-- storing places end -->
