@@ -6,7 +6,7 @@ function Def (html) {
                 <head>
                     <title>Title</title>
                 </head>
-                <link rel="stylesheet" href="../views" />
+                <link rel="stylesheet" href="index.jsx" />
             </html>
         )
 }
