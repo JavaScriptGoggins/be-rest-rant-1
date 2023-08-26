@@ -25,8 +25,12 @@ As a restaurant customer, I need the reviews feature, so I can see the quality o
 
 <!-- storing places begin -->
 
-| Name          | City      | State      | Cuisines             | Picture                     |
-|:--------------|:---------:|:----------:|:--------------------:|----------------------------:|
-|Board and Brew | Escondido | California | Sandwiches and Salads| Board and Brew Image        |
+| Field   | Type   |
+|:--------|:------:|
+|name     | String |
+|city     | String |
+|state    | String |
+|cuisines | String |
+|pic      | String |
 
 <!-- storing places end -->
