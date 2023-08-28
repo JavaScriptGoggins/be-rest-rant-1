@@ -15,7 +15,11 @@ router.get('/', (req, res) => {
         pic: 'http://placekitten.com/250/250'
       }]
       
-      res.render('places/index', { places })
+      // GET /places
+  app.get('/', (req, res) => {
+  res.render('places/index')
+})
+
 
 })
 
