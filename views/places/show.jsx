@@ -1,41 +1,33 @@
 const React = require('react')
 const Def = require('../default')
 
-function edit_form(data) {
+function show (data) {
     return (
         <Def>
-            <main>
-                <h1>Edit Place</h1>
-                <form method="POST" action={`/places/${data.id}?_method=PUT`}>
-                    <div className="row">
-                        <div className="form-group col-sm-6">
-                            <label htmlFor="name">Place Name</label>
-                            <input className="form-control" id="name" name="name" value={data.place.name} required />
-                        </div>
-                        <div className="form-group col-sm-6">
-                            <label htmlFor="pic">Place Picture</label>
-                            <input className="form-control" id="pic" name="pic" value={data.place.pic} />
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="form-group col-sm-4">
-                            <label htmlFor="city">City</label>
-                            <input className="form-control" id="city" name="city" value={data.place.city} />
-                        </div>
-                        <div className="form-group col-sm-4">
-                            <label htmlFor="state">State</label>
-                            <input className="form-control" id="state" name="state" value={data.place.state} />
-                        </div>
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="cuisines">Cuisines</label>
-                        <input className="form-control" id="cuisines" name="cuisines" value={data.place.cuisines} required />
-                    </div>
-                    <button type="submit" className="btn btn-danger">Update Place</button>
-                </form>
-            </main>
+          <main>
+            <h1>Show Page</h1>
+            <h1>{ data.place.name }</h1>
+            <p className="text-center"><h2>Cuisines</h2>{data.place.cuisines}</p>
+            <img src={data.place.pic} alt={data.place.name} />
+            <p className="text-center"><h2>Located in</h2>{data.place.city}, {data.place.state}</p>
+            <div>
+                <h2>Ratings:</h2>
+                <p>currently unrated</p>
+            </div>
+            <div>
+                <h2>Comments:</h2>
+                <p>currently no comments</p>
+            </div>
+            <div>
+            <a href={`/places/${data.id}/edit`} className="btn btn-warning">Edit</a>     
+            <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+                <button type="submit" className="btn btn-danger">Delete</button>
+            </form> 
+
+            </div>
+          </main>
         </Def>
     )
 }
 
-module.exports = edit_form;
+module.exports = show

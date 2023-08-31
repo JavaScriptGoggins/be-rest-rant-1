@@ -35,27 +35,27 @@ router.get('/', (req, res) => {
           res.render('error404')
       }
       else {
-        res.render('places/edit', { place: places[id] })
+        res.render('places/edit', { place: places[id], id: id })
       }
+      console.log("Edit route hit with ID:", id);
     })
 
     router.put('/:id', (req, res) => {
-      console.log('PUT request revieved for ID:', req.params.id);
-      let id = Number(req.params.id);
-      if (isNaN(id) || !places[id]) {
-          return res.render('error404');
+      console.log('PUT request received for ID:', req.params.id);
+      console.log(req.body)
+      let id = Number(req.params.id)
+      if (isNaN(id)) {
+          res.render('error404')
       }
-  
-      // Assuming you are storing places as objects in an array
-      // and that req.body contains the updated place data.
-      places[id] = {
-          ...places[id], 
-          ...req.body
-      };
-  
-      res.redirect(`/places/${id}`);
-
-  });
+      else if (!places[id]) {
+          res.render('error404')
+      }
+      else {
+          places[id] = req.body
+          res.redirect(`/places/${id}`)
+      }
+    })
+    
 
    //making sure id is a number
   router.get('/:id', (req, res) => {
