@@ -5,25 +5,51 @@ function show (data) {
     return (
         <Def>
           <main>
-            <h1>Show Page</h1>
-            <h1>{ data.place.name }</h1>
-            <p className="text-center"><h2>Cuisines</h2>{data.place.cuisines}</p>
-            <img src={data.place.pic} alt={data.place.name} />
-            <p className="text-center"><h2>Located in</h2>{data.place.city}, {data.place.state}</p>
-            <div>
-                <h2>Ratings:</h2>
-                <p>currently unrated</p>
-            </div>
-            <div>
-                <h2>Comments:</h2>
-                <p>currently no comments</p>
-            </div>
-            <div>
-            <a href={`/places/${data.id}/edit`} className="btn btn-warning">Edit</a>     
-            <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
-                <button type="submit" className="btn btn-danger">Delete</button>
-            </form> 
+            <div className="row">
+                <div className="col-sm-6">
+                    <img src={data.place.pic} alt={data.place.name} />
 
+                    <h3>
+                        Located in {data.place.city}, {data.place.state} 
+                    </h3>
+
+                    <h3>
+                        {data.place.showEstablished()}
+                    </h3>
+                    <h5>
+                        serving {data.place.cuisines}
+                    </h5>
+                </div>
+            </div> 
+
+            <div className="row">
+                <div className="col-sm-6">
+                    <div>
+                        <h2>Ratings:</h2>
+                        <p>currently unrated</p>
+                    </div>
+
+                    <div>
+                        <h2>Comments:</h2>
+                        <p>currently no comments</p>
+                    </div>
+
+                    <div className="row">
+                <div className="col-sm-5">
+                    <h5>
+                        Founded In {data.place.founded}
+                    </h5>
+
+                </div>
+            </div>
+
+                    <div>
+                        <a href={`/places/${data.id}/edit`} className="btn btn-warning">Edit</a>     
+                        <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+                        <button type="submit" className="btn btn-danger">Delete</button>
+                        </form> 
+                    </div>
+                </div>
             </div>
           </main>
         </Def>
